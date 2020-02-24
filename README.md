@@ -1,29 +1,14 @@
-# README #
+# Stream Variability Analysis #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This project explores how water and energy limitations impact streamflow trends
 
-### What is this repository for? ###
+### Dependencies ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Python 3.7.3
+* Pip 20.0.2
+* Virtual environment
+* pip install -r requirements.txt
 
-### How do I get set up? ###
+### /analysis ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Directory with jupyter notebook files that explore Budyko framework and impacts on streamflow
