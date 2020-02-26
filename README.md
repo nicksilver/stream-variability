@@ -12,3 +12,6 @@ This project explores how water and energy limitations impact streamflow trends
 ### /analysis ###
 
 Directory with jupyter notebook files that explore Budyko framework and impacts on streamflow
+
+### To run interactive code
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nicksilver/stream-variability.git/master?filepath=analysis%2Fdistribution_changes_interact.ipynb)
