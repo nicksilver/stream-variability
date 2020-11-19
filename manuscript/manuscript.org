@@ -1,0 +1,69 @@
+#+TITLE: Manuscript
+
+
+#+BEGIN_SRC jupyter-python :results none :session py :kernel stream-variability-venv
+import numpy as np
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+np.random.seed(1)
+#+END_SRC
+
+* Introduction
+We are exploring the effects of aridity on the distribution of streamflow using
+the Budyko frame work.
+
+* Methods
+
+* Results
+
+** Scenario 1: Changes in aridity
+We look at how changes in aridity (i.e. ${pet}_{p}$) impact the long-term
+distribution of streamflow.
+
+#+BEGIN_SRC jupyter-python :session py :kernel stream-variability-venv
+np.random.seed(123)
+
+# Setup constants
+noise = 0.2
+n = 1000
+w = 2.6
+
+# Create two separate aridity scenarios
+pet_p_1 = 0.5 + noise * np.random.randn(n)
+pet_p_2 = 2.0 + noise * np.random.randn(n)
+pet_p_2[pet_p_2 < 0] = 0
+pet_p_1[pet_p_1 <0] = 0
+
+# Calculate streamflow distribution for two aridty scenarios
+aet_p_1 = (1 + (pet_p_1) - ((1 + (pet_p_1)**w)**(1/w)))
+q_p_1 = 1-aet_p_1
+q_p_1[q_p_1 < 0] = 0
+aet_p_2 = (1 + (pet_p_2) - ((1 + (pet_p_2)**w)**(1/w)))
+q_p_2 = 1-aet_p_2
+q_p_2[q_p_2 < 0] = 0
+
+# Plot results
+plt.figure(figsize=(5, 3), dpi=100)
+sns.kdeplot(q_p_1, color="dodgerblue", label="Low Aridity", shade=True)
+sns.kdeplot(q_p_2, color="deeppink", label="High Aridity", shade=True)
+plt.title("Density Plot of Q/P")
+plt.xlabel("Q/P")
+plt.legend()
+
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+: <matplotlib.legend.Legend at 0x7f20f94cac88>
+[[file:./.ob-jupyter/e2952ecd8106d406ff447b80d4fe88c431bd5233.png]]
+:END:
+
+#+BEGIN_SRC jupyter-python :session py :async yes :kernel stream-variability-venv
+#+END_SRC
+
+#+RESULTS:
+
+* Discussion
+
+* Conclusion
